@@ -189,10 +189,14 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
 
               {/* Product Description */}
               <div className="pt-4 space-y-2 text-gray-700">
-                <p className="font-medium text-lg text-gray-900">The one that never misses.</p>
-                <p>Heavy 280 GSM cotton.</p>
-                <p>Feels clean. Holds the shape.</p>
-                <p>Embroidered logo in chest.</p>
+                <p className="font-medium text-lg text-gray-900">You don't need 5 jackets.</p>
+                <p>You need one that hits different.</p>
+                <p>This one.</p>
+                <p>Clean as f***. No logos screaming for attention.</p>
+                <p>Just the right shape, the right weight, and a fit that speaks for itself.</p>
+                <p>We made this for the ones who move different.</p>
+                <p>Who don't care about hype, they care about quality.</p>
+                <p>Once you put it on, you'll get it.</p>
               </div>
             </div>
           </div>
