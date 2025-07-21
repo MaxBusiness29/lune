@@ -230,7 +230,7 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
           <div className="group">
             <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
               <img 
-                src="https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                src="/IMG_5133.png" 
                 alt="Winners Circle Hoodie"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
