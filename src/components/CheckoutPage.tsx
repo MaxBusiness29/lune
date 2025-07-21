@@ -13,9 +13,10 @@ interface CartItem {
 interface CheckoutPageProps {
   cartItems: CartItem[];
   onBackToCart: () => void;
+  onOrderComplete: () => void;
 }
 
-function CheckoutPage({ cartItems, onBackToCart }: CheckoutPageProps) {
+function CheckoutPage({ cartItems, onBackToCart, onOrderComplete }: CheckoutPageProps) {
   const [email, setEmail] = useState('');
   const [emailOffers, setEmailOffers] = useState(false);
   const [country, setCountry] = useState('United States');
@@ -50,6 +51,11 @@ function CheckoutPage({ cartItems, onBackToCart }: CheckoutPageProps) {
   // Check if shipping address is complete
   const isShippingAddressComplete = firstName && lastName && address && city && zipCode;
 
+  const handlePayNow = () => {
+    // Here you would normally process the payment
+    // For now, we'll just proceed to confirmation
+    onOrderComplete();
+  };
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto">
@@ -354,7 +360,10 @@ function CheckoutPage({ cartItems, onBackToCart }: CheckoutPageProps) {
 
               {/* Pay Now Button */}
               <div className="mt-6">
-                <button className="w-full bg-black text-white py-4 px-6 font-semibold rounded-md hover:bg-gray-800 transition-colors duration-200">
+                <button 
+                  onClick={handlePayNow}
+                  className="w-full bg-black text-white py-4 px-6 font-semibold rounded-md hover:bg-gray-800 transition-colors duration-200"
+                >
                   Pay Now
                 </button>
               </div>
