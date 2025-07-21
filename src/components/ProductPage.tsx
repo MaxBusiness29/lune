@@ -158,15 +158,12 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
                       selectedSize === size
                         ? 'bg-black text-white border-black'
                         : 'bg-white text-black border-gray-300 hover:border-gray-400'
-                    } ${(size === 'XL' || size === 'XXL') ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    } ${(size === 'XL' || size === 'XXL') ? 'opacity-50 cursor-not-allowed out-of-stock' : ''}`}
                     disabled={size === 'XL' || size === 'XXL'}
                   >
-                    {size}
-                    {(size === 'XL' || size === 'XXL') && (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-8 h-0.5 bg-red-500 rotate-45 absolute"></div>
-                      </div>
-                    )}
+                    <span className={(size === 'XL' || size === 'XXL') ? 'line-through' : ''}>
+                      {size}
+                    </span>
                   </button>
                 ))}
               </div>
