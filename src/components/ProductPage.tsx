@@ -220,19 +220,6 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
             <p className="text-gray-600">$48.00 USD</p>
           </div>
 
-          {/* Indecisive Core Gold Jacket */}
-          <div className="group">
-            <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
-              <img 
-                src="/IMG_5131.png" 
-                alt="Indecisive Core Gold Jacket"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <h3 className="font-medium text-gray-900 mb-1">Indecisive Core Gold Jacket</h3>
-            <p className="text-gray-600">$35.00 USD</p>
-          </div>
-
           {/* Winners Circle Hoodie */}
           <div className="group">
             <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">

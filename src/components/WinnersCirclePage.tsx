@@ -21,12 +21,6 @@ function WinnersCirclePage({ onBackToProducts }: WinnersCirclePageProps) {
       image: '/IMG_5132.png'
     },
     {
-      id: 'indecisive-core-hat',
-      name: 'Indecisive Core Gold Jacket',
-      price: '$35.00 USD',
-      image: '/IMG_5131.png'
-    },
-    {
       id: 'winners-circle-tshirt',
       name: 'Indecisive Camo Jacket',
       price: '$48.00 USD',
