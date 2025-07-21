@@ -38,6 +38,7 @@ function CheckoutPage({ cartItems, onBackToCart, onOrderComplete }: CheckoutPage
   const [rememberMe, setRememberMe] = useState(false);
   const [discountCode, setDiscountCode] = useState('');
   const [selectedShippingMethod, setSelectedShippingMethod] = useState('standard');
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const getSubtotal = () => {
     return cartItems.reduce((total, item) => {
@@ -52,9 +53,13 @@ function CheckoutPage({ cartItems, onBackToCart, onOrderComplete }: CheckoutPage
   const isShippingAddressComplete = firstName && lastName && address && city && zipCode;
 
   const handlePayNow = () => {
-    // Here you would normally process the payment
-    // For now, we'll just proceed to confirmation
-    onOrderComplete();
+    setIsProcessing(true);
+    
+    // Simulate payment processing for 2-3 seconds
+    setTimeout(() => {
+      setIsProcessing(false);
+      onOrderComplete();
+    }, 2500);
   };
   return (
     <div className="min-h-screen bg-white">
@@ -362,9 +367,17 @@ function CheckoutPage({ cartItems, onBackToCart, onOrderComplete }: CheckoutPage
               <div className="mt-6">
                 <button 
                   onClick={handlePayNow}
-                  className="w-full bg-black text-white py-4 px-6 font-semibold rounded-md hover:bg-gray-800 transition-colors duration-200"
+                  disabled={isProcessing}
+                  className="w-full bg-black text-white py-4 px-6 font-semibold rounded-md hover:bg-gray-800 transition-colors duration-200 disabled:opacity-75 disabled:cursor-not-allowed flex items-center justify-center"
                 >
-                  Pay Now
+                  {isProcessing ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent mr-3"></div>
+                      Processing...
+                    </>
+                  ) : (
+                    'Pay Now'
+                  )}
                 </button>
               </div>
             </div>
