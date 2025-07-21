@@ -173,6 +173,16 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
             </div>
 
             <div className="space-y-4 pt-6">
+              {/* Product Detail Image */}
+              <div className="flex justify-center mb-6">
+                <img 
+                  src="/IMG_5132.png" 
+                  alt="Product detail"
+                  className="max-w-full h-auto max-h-64 object-contain rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                  onClick={() => setShowLightbox(true)}
+                />
+              </div>
+
               <button 
                 onClick={addToCart}
                 className="w-full bg-white border border-black text-black py-3 px-6 font-medium tracking-wide hover:bg-black hover:text-white transition-colors duration-200"
@@ -381,7 +391,7 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
               <X className="w-8 h-8" />
             </button>
             <img 
-              src="/IMG_5133.png" 
+              src="/IMG_5132.png" 
               alt="Product detail - expanded view"
               className="max-w-full max-h-full object-contain"
               onClick={(e) => e.stopPropagation()}
