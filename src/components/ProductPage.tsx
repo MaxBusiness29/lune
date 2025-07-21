@@ -112,6 +112,17 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
         </div>
       </header>
 
+      {/* Featured Product Hero Section */}
+      <section className="w-full">
+        <div className="w-full h-64 md:h-96 lg:h-[500px] overflow-hidden">
+          <img 
+            src="/IMG_5131.png" 
+            alt="Featured Indecisive Product"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+      </section>
+
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
