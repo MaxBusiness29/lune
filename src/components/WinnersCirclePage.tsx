@@ -24,7 +24,7 @@ function WinnersCirclePage({ onBackToProducts }: WinnersCirclePageProps) {
       id: 'indecisive-core-hat',
       name: 'Indecisive Core Hat',
       price: '$35.00 USD',
-      image: 'https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: '/IMG_5131.png'
     },
     {
       id: 'winners-circle-tshirt',
