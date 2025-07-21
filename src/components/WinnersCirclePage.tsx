@@ -22,7 +22,7 @@ function WinnersCirclePage({ onBackToProducts }: WinnersCirclePageProps) {
     },
     {
       id: 'indecisive-core-hat',
-      name: 'Indecisive Core Hat',
+      name: 'Indecisive Core Gold Jacket',
       price: '$35.00 USD',
       image: '/IMG_5131.png'
     },
