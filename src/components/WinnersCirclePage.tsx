@@ -31,12 +31,6 @@ function WinnersCirclePage({ onBackToProducts }: WinnersCirclePageProps) {
       name: 'Indecisive Camo Jacket',
       price: '$48.00 USD',
       image: '/IMG_5133.png'
-    },
-    {
-      id: 'tropical-excellence-tshirt',
-      name: 'Tropical Excellence T-Shirt',
-      price: '$37.00 USD',
-      image: 'https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=400'
     }
   ];
 
