@@ -118,7 +118,7 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
           {/* Product Image */}
           <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
             <img 
-              src={product.id === 'indecisive-core-jacket' ? '/IMG_5132.png' : '/IMG_5133.png'} 
+              src="/IMG_5132.png" 
               alt={product.name}
               className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
               onClick={() => setShowLightbox(true)}
@@ -362,7 +362,7 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
               <X className="w-8 h-8" />
             </button>
             <img 
-              src={product.id === 'indecisive-core-jacket' ? '/IMG_5132.png' : '/IMG_5133.png'} 
+              src="/IMG_5132.png" 
               alt="Product detail - expanded view"
               className="max-w-full max-h-full object-contain"
               onClick={(e) => e.stopPropagation()}

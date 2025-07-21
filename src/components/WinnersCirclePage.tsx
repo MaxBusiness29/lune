@@ -104,7 +104,7 @@ function WinnersCirclePage({ onBackToProducts }: WinnersCirclePageProps) {
           <div className="flex justify-center">
             <div className="flex max-w-md w-full">
               <input
-                src={product.id === 'indecisive-core-jacket' ? '/IMG_5132.png' : '/IMG_5133.png'} 
+                type="email"
                 placeholder="Email"
                 className="flex-1 px-4 py-3 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
               />
