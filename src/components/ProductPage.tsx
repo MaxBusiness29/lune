@@ -34,6 +34,7 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
   const [selectedSize, setSelectedSize] = useState('S');
   const [quantity, setQuantity] = useState(1);
   const [showCart, setShowCart] = useState(false);
+  const [showLightbox, setShowLightbox] = useState(false);
 
   const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
 
@@ -171,6 +172,16 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
             </div>
 
             <div className="space-y-4 pt-6">
+              {/* Product Image Above Add to Cart */}
+              <div className="flex justify-center mb-6">
+                <img 
+                  src="/IMG_5133.png" 
+                  alt="Product detail"
+                  className="max-w-full h-auto max-h-64 object-contain cursor-pointer hover:opacity-90 transition-opacity rounded-lg shadow-sm"
+                  onClick={() => setShowLightbox(true)}
+                />
+              </div>
+
               <button 
                 onClick={addToCart}
                 className="w-full bg-white border border-black text-black py-3 px-6 font-medium tracking-wide hover:bg-black hover:text-white transition-colors duration-200"
@@ -361,6 +372,29 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
                 </div>
               )}
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox Modal */}
+      {showLightbox && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+          onClick={() => setShowLightbox(false)}
+        >
+          <div className="relative max-w-4xl max-h-full">
+            <button 
+              onClick={() => setShowLightbox(false)}
+              className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <img 
+              src="/IMG_5133.png" 
+              alt="Product detail - expanded view"
+              className="max-w-full max-h-full object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
           </div>
         </div>
       )}
