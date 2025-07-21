@@ -191,7 +191,7 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
               <div className="pt-4 space-y-2 text-gray-700">
                 <p className="font-medium text-lg text-gray-900">You don't need 5 jackets.</p>
                 <p>You need one that hits different.</p>
-                <p>This one.</p>
+                <p><strong>This one.</strong></p>
                 <p>Clean as f***. No logos screaming for attention.</p>
                 <p>Just the right shape, the right weight, and a fit that speaks for itself.</p>
                 <p>We made this for the ones who move different.</p>
