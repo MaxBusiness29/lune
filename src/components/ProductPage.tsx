@@ -118,7 +118,7 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
           {/* Product Image */}
           <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
             <img 
-              src="/IMG_5133.png" 
+              src="/IMG_5132.png" 
               alt={product.name}
               className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
               onClick={() => setShowLightbox(true)}
@@ -173,16 +173,6 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
             </div>
 
             <div className="space-y-4 pt-6">
-              {/* Product Detail Image */}
-              <div className="flex justify-center mb-6">
-                <img 
-                  src="/IMG_5132.png" 
-                  alt="Product detail"
-                  className="max-w-full h-auto max-h-64 object-contain rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer"
-                  onClick={() => setShowLightbox(true)}
-                />
-              </div>
-
               <button 
                 onClick={addToCart}
                 className="w-full bg-white border border-black text-black py-3 px-6 font-medium tracking-wide hover:bg-black hover:text-white transition-colors duration-200"
