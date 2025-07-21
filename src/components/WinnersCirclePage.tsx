@@ -28,8 +28,8 @@ function WinnersCirclePage({ onBackToProducts }: WinnersCirclePageProps) {
     },
     {
       id: 'winners-circle-tshirt',
-      name: 'Winners Circle T-Shirt',
-      price: '$35.00 USD',
+      name: 'Indecisive Camo Jacket',
+      price: '$48.00 USD',
       image: '/IMG_5133.png'
     },
     {
