@@ -14,3 +14,9 @@
 .animate-scroll {
   animation: scroll 30s linear infinite;
 }
+
+.out-of-stock {
+  text-decoration: line-through;
+  text-decoration-color: #ef4444;
+  text-decoration-thickness: 2px;
+}

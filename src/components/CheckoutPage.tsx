@@ -13,9 +13,10 @@ interface CartItem {
 interface CheckoutPageProps {
   cartItems: CartItem[];
   onBackToCart: () => void;
+  onOrderComplete: () => void;
 }
 
-function CheckoutPage({ cartItems, onBackToCart }: CheckoutPageProps) {
+function CheckoutPage({ cartItems, onBackToCart, onOrderComplete }: CheckoutPageProps) {
   const [email, setEmail] = useState('');
   const [emailOffers, setEmailOffers] = useState(false);
   const [country, setCountry] = useState('United States');
@@ -37,6 +38,7 @@ function CheckoutPage({ cartItems, onBackToCart }: CheckoutPageProps) {
   const [rememberMe, setRememberMe] = useState(false);
   const [discountCode, setDiscountCode] = useState('');
   const [selectedShippingMethod, setSelectedShippingMethod] = useState('standard');
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const getSubtotal = () => {
     return cartItems.reduce((total, item) => {
@@ -50,6 +52,15 @@ function CheckoutPage({ cartItems, onBackToCart }: CheckoutPageProps) {
   // Check if shipping address is complete
   const isShippingAddressComplete = firstName && lastName && address && city && zipCode;
 
+  const handlePayNow = () => {
+    setIsProcessing(true);
+    
+    // Simulate payment processing for 2-3 seconds
+    setTimeout(() => {
+      setIsProcessing(false);
+      onOrderComplete();
+    }, 2500);
+  };
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto">
@@ -354,8 +365,19 @@ function CheckoutPage({ cartItems, onBackToCart }: CheckoutPageProps) {
 
               {/* Pay Now Button */}
               <div className="mt-6">
-                <button className="w-full bg-black text-white py-4 px-6 font-semibold rounded-md hover:bg-gray-800 transition-colors duration-200">
-                  Pay Now
+                <button 
+                  onClick={handlePayNow}
+                  disabled={isProcessing}
+                  className="w-full bg-black text-white py-4 px-6 font-semibold rounded-md hover:bg-gray-800 transition-colors duration-200 disabled:opacity-75 disabled:cursor-not-allowed flex items-center justify-center"
+                >
+                  {isProcessing ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent mr-3"></div>
+                      Processing...
+                    </>
+                  ) : (
+                    'Pay Now'
+                  )}
                 </button>
               </div>
             </div>

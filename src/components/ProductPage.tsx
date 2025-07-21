@@ -34,6 +34,7 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
   const [selectedSize, setSelectedSize] = useState('S');
   const [quantity, setQuantity] = useState(1);
   const [showCart, setShowCart] = useState(false);
+  const [showLightbox, setShowLightbox] = useState(false);
 
   const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
 
@@ -119,7 +120,8 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
             <img 
               src={product.image} 
               alt={product.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
+              onClick={() => setShowLightbox(true)}
             />
           </div>
 
@@ -156,9 +158,12 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
                       selectedSize === size
                         ? 'bg-black text-white border-black'
                         : 'bg-white text-black border-gray-300 hover:border-gray-400'
-                    }`}
+                    } ${(size === 'XL' || size === 'XXL') ? 'opacity-50 cursor-not-allowed out-of-stock' : ''}`}
+                    disabled={size === 'XL' || size === 'XXL'}
                   >
-                    {size}
+                    <span className={(size === 'XL' || size === 'XXL') ? 'line-through' : ''}>
+                      {size}
+                    </span>
                   </button>
                 ))}
               </div>
@@ -184,10 +189,14 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
 
               {/* Product Description */}
               <div className="pt-4 space-y-2 text-gray-700">
-                <p className="font-medium text-lg text-gray-900">The one that never misses.</p>
-                <p>Heavy 280 GSM cotton.</p>
-                <p>Feels clean. Holds the shape.</p>
-                <p>Embroidered logo in chest.</p>
+                <p className="font-medium text-lg text-gray-900">You don't need 5 jackets.</p>
+                <p>You need one that hits different.</p>
+                <p><strong>This one.</strong></p>
+                <p>Clean as f***. No logos screaming for attention.</p>
+                <p>Just the right shape, the right weight, and a fit that speaks for itself.</p>
+                <p>We made this for the ones who move different.</p>
+                <p>Who don't care about hype, they care about quality.</p>
+                <p>Once you put it on, you'll get it.</p>
               </div>
             </div>
           </div>
@@ -202,52 +211,30 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
           <div className="group">
             <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
               <img 
-                src="https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                alt="Indecisive Core T-Shirt"
+                src={product.id === 'indecisive-core-jacket' ? '/IMG_5133.png' : '/IMG_5132.png'} 
+                alt="Indecisive Core Jacket"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <h3 className="font-medium text-gray-900 mb-1">Indecisive Core T-Shirt</h3>
-            <p className="text-gray-600">$35.00 USD</p>
-          </div>
-
-          {/* Indecisive Core Hat */}
-          <div className="group">
-            <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
-              <img 
-                src="https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                alt="Indecisive Core Hat"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <h3 className="font-medium text-gray-900 mb-1">Indecisive Core Hat</h3>
-            <p className="text-gray-600">$35.00 USD</p>
+            <h3 className="font-medium text-gray-900 mb-1">
+              {product.id === 'indecisive-core-jacket' ? 'Indecisive Camo Jacket' : 'Indecisive Core Jacket'}
+            </h3>
+            <p className="text-gray-600">$48.00 USD</p>
           </div>
 
           {/* Winners Circle Hoodie */}
           <div className="group">
             <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
               <img 
-                src="https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                alt="Winners Circle Hoodie"
+                src={product.id === 'winners-circle-tshirt' ? '/IMG_5132.png' : '/IMG_5133.png'} 
+                alt="Indecisive Jacket"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <h3 className="font-medium text-gray-900 mb-1">Winners Circle Hoodie</h3>
-            <p className="text-gray-600">$67.00 USD</p>
-          </div>
-
-          {/* Tropical Excellence T-Shirt */}
-          <div className="group">
-            <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
-              <img 
-                src="https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                alt="Tropical Excellence T-Shirt"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <h3 className="font-medium text-gray-900 mb-1">Tropical Excellence T-Shirt</h3>
-            <p className="text-gray-600">$37.00 USD</p>
+            <h3 className="font-medium text-gray-900 mb-1">
+              {product.id === 'winners-circle-tshirt' ? 'Indecisive Core Jacket' : 'Indecisive Camo Jacket'}
+            </h3>
+            <p className="text-gray-600">$48.00 USD</p>
           </div>
         </div>
       </section>
@@ -361,6 +348,29 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
                 </div>
               )}
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox Modal */}
+      {showLightbox && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+          onClick={() => setShowLightbox(false)}
+        >
+          <div className="relative max-w-4xl max-h-full">
+            <button 
+              onClick={() => setShowLightbox(false)}
+              className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <img 
+              src={product.image} 
+              alt="Product detail - expanded view"
+              className="max-w-full max-h-full object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
           </div>
         </div>
       )}
