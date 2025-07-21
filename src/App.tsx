@@ -14,9 +14,9 @@ function App() {
   const [currentPage, setCurrentPage] = useState<'product' | 'winners-circle' | 'checkout'>('product');
   const [selectedProduct, setSelectedProduct] = useState<Product>({
     id: 'indecisive-hoodie',
-    name: 'Indecisive Embroidered Core Hoodie',
-    price: '$67.00 USD',
-    image: 'https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=800'
+    name: 'Indecisive Core Jacket',
+    price: '$48.00 USD',
+    image: '/IMG_5132.png'
   });
   const [cartItems, setCartItems] = useState<Array<{
     id: string;

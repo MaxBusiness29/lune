@@ -15,10 +15,10 @@ interface WinnersCirclePageProps {
 function WinnersCirclePage({ onBackToProducts }: WinnersCirclePageProps) {
   const products: Product[] = [
     {
-      id: 'indecisive-core-tshirt',
-      name: 'Indecisive Core T-Shirt',
-      price: '$35.00 USD',
-      image: 'https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=400'
+      id: 'indecisive-core-jacket',
+      name: 'Indecisive Core Jacket',
+      price: '$48.00 USD',
+      image: '/IMG_5132.png'
     },
     {
       id: 'indecisive-core-hat',

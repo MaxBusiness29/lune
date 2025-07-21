@@ -204,13 +204,13 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
           <div className="group">
             <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
               <img 
-                src="https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                alt="Indecisive Core T-Shirt"
+                src="/IMG_5132.png" 
+                alt="Indecisive Core Jacket"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <h3 className="font-medium text-gray-900 mb-1">Indecisive Core T-Shirt</h3>
-            <p className="text-gray-600">$35.00 USD</p>
+            <h3 className="font-medium text-gray-900 mb-1">Indecisive Core Jacket</h3>
+            <p className="text-gray-600">$48.00 USD</p>
           </div>
 
           {/* Indecisive Core Hat */}
