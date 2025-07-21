@@ -30,7 +30,7 @@ function WinnersCirclePage({ onBackToProducts }: WinnersCirclePageProps) {
       id: 'winners-circle-tshirt',
       name: 'Winners Circle T-Shirt',
       price: '$35.00 USD',
-      image: 'https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: '/IMG_5133.png'
     },
     {
       id: 'tropical-excellence-tshirt',
