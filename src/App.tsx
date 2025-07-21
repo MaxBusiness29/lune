@@ -35,7 +35,10 @@ function App() {
     }
     setCurrentPage('product');
   };
-  const showCheckout = () => setCurrentPage('checkout');
+  const showCheckout = () => {
+    setCurrentPage('checkout');
+    window.scrollTo(0, 0);
+  };
   const showConfirmation = () => setCurrentPage('confirmation');
 
   if (currentPage === 'winners-circle') {
