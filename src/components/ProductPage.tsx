@@ -118,7 +118,7 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
           {/* Product Image */}
           <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
             <img 
-              src="/IMG_5132.png" 
+              src={product.image} 
               alt={product.name}
               className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
               onClick={() => setShowLightbox(true)}
@@ -211,12 +211,14 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
           <div className="group">
             <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
               <img 
-                src="/IMG_5132.png" 
+                src={product.id === 'indecisive-core-jacket' ? '/IMG_5133.png' : '/IMG_5132.png'} 
                 alt="Indecisive Core Jacket"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <h3 className="font-medium text-gray-900 mb-1">Indecisive Core Jacket</h3>
+            <h3 className="font-medium text-gray-900 mb-1">
+              {product.id === 'indecisive-core-jacket' ? 'Indecisive Camo Jacket' : 'Indecisive Core Jacket'}
+            </h3>
             <p className="text-gray-600">$48.00 USD</p>
           </div>
 
@@ -224,12 +226,14 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
           <div className="group">
             <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
               <img 
-                src="/IMG_5133.png" 
-                alt="Indecisive Camo Jacket"
+                src={product.id === 'winners-circle-tshirt' ? '/IMG_5132.png' : '/IMG_5133.png'} 
+                alt="Indecisive Jacket"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <h3 className="font-medium text-gray-900 mb-1">Indecisive Camo Jacket</h3>
+            <h3 className="font-medium text-gray-900 mb-1">
+              {product.id === 'winners-circle-tshirt' ? 'Indecisive Core Jacket' : 'Indecisive Camo Jacket'}
+            </h3>
             <p className="text-gray-600">$48.00 USD</p>
           </div>
         </div>
@@ -362,7 +366,7 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
               <X className="w-8 h-8" />
             </button>
             <img 
-              src="/IMG_5132.png" 
+              src={product.image} 
               alt="Product detail - expanded view"
               className="max-w-full max-h-full object-contain"
               onClick={(e) => e.stopPropagation()}
