@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Minus, Plus, X, Trash2 } from 'lucide-react';
+import { ShoppingBag, Minus, Plus, X, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Product {
   id: string;
@@ -35,9 +35,25 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
   const [quantity, setQuantity] = useState(1);
   const [showCart, setShowCart] = useState(false);
   const [showLightbox, setShowLightbox] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
 
+  // Product images - using the actual product image plus model shots
+  const productImages = [
+    product.image, // Original product image
+    'https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800', // Male model in casual wear
+    'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=800', // Male model portrait
+    'https://images.pexels.com/photos/1040424/pexels-photo-1040424.jpeg?auto=compress&cs=tinysrgb&w=800'  // Male model full body
+  ];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % productImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + productImages.length) % productImages.length);
+  };
   const incrementQuantity = () => setQuantity(prev => prev + 1);
   const decrementQuantity = () => setQuantity(prev => Math.max(1, prev - 1));
 
@@ -116,13 +132,66 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
       <main className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Image */}
-          <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-            <img 
-              src={product.image} 
-              alt={product.name}
-              className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
-              onClick={() => setShowLightbox(true)}
-            />
+          <div className="relative">
+            <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden relative">
+              <img 
+                src={productImages[currentImageIndex]} 
+                alt={`${product.name} - Image ${currentImageIndex + 1}`}
+                className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => setShowLightbox(true)}
+              />
+              
+              {/* Navigation Arrows */}
+              <button
+                onClick={prevImage}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-lg transition-all duration-200"
+              >
+                <ChevronLeft className="w-5 h-5 text-gray-800" />
+              </button>
+              
+              <button
+                onClick={nextImage}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-lg transition-all duration-200"
+              >
+                <ChevronRight className="w-5 h-5 text-gray-800" />
+              </button>
+              
+              {/* Image Indicators */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                {productImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                      index === currentImageIndex 
+                        ? 'bg-white' 
+                        : 'bg-white bg-opacity-50 hover:bg-opacity-75'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+            
+            {/* Thumbnail Navigation - Desktop Only */}
+            <div className="hidden md:flex mt-4 space-x-3">
+              {productImages.map((image, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
+                    index === currentImageIndex 
+                      ? 'border-black' 
+                      : 'border-gray-300 hover:border-gray-400'
+                  }`}
+                >
+                  <img 
+                    src={image} 
+                    alt={`${product.name} thumbnail ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Product Details */}
@@ -366,7 +435,7 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
               <X className="w-8 h-8" />
             </button>
             <img 
-              src={product.image} 
+              src={productImages[currentImageIndex]} 
               alt="Product detail - expanded view"
               className="max-w-full max-h-full object-contain"
               onClick={(e) => e.stopPropagation()}
