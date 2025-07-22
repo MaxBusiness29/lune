@@ -42,9 +42,9 @@ function ProductPage({ onLogoClick, product, onCheckout, cartItems, setCartItems
   // Product images - using the actual product image plus model shots
   const productImages = [
     product.image, // Original product image
-    'https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800', // Male model in casual wear
-    'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=800', // Male model portrait
-    'https://images.pexels.com/photos/1040424/pexels-photo-1040424.jpeg?auto=compress&cs=tinysrgb&w=800'  // Male model full body
+    'https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=800', // Male model in flannel - front view
+    'https://images.pexels.com/photos/1040424/pexels-photo-1040424.jpeg?auto=compress&cs=tinysrgb&w=800', // Male model in casual wear - side view
+    'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=800'  // Male model portrait - turned pose
   ];
 
   const nextImage = () => {
